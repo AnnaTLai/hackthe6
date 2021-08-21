@@ -1,31 +1,31 @@
 import React from "react";
-import withRoot from '../../onepirate/modules/withRoot';
-// --- Post bootstrap -----
+
 import AppFooter from '../../onepirate/modules/views/AppFooter';
-import ProductHero from '../../onepirate/modules/views/ProductHero';
-import ProductValues from '../../onepirate/modules/views/ProductValues';
 import AppAppBar from '../../onepirate/modules/views/AppAppBar';
-import MainNav from "../../components/navbar";
+import Calendar from "@ericz1803/react-google-calendar";
+import {Container,Paper} from "@material-ui/core";
+import withRoot from "../../onepirate/modules/withRoot";
 
-// export default function Workshops() {
-//     return(
-//         <div>
-//             <MainNav/>
-//             <h1> Workshop! </h1>
-//         </div>
-//     )
-// }
-
+const calendar_key = "AIzaSyDR4rE1jSfgxGqLfcRMVOX_5Q0BRd8FFvA";
+const calendar_id = '5k5ak8miiagrpmjbf7qd9u18k4@group.calendar.google.com';
+let calendars = [
+    {
+        calendarId: '5k5ak8miiagrpmjbf7qd9u18k4@group.calendar.google.com',
+    }
+];
 function Workshops() {
     return (
-      <React.Fragment>
-        <AppAppBar />
-        <div>
-            <h1> Workshop! </h1>
-        </div>
-        <AppFooter />
-      </React.Fragment>
-    );
-  }
-  
-  export default withRoot(Workshops);
+        <React.Fragment>
+            <AppAppBar />
+            <h1 style={{ 'text-align': 'center', 'font-size': '60px'}}>Workshops</h1>
+            <Container maxWidth={'lg'}>
+                <Paper elevation={3}>
+                    <Calendar apiKey={calendar_key} calendars={calendars} showFooter={false}/>
+                </Paper>
+            </Container>
+            <AppFooter />
+        </React.Fragment>
+    )
+}
+
+export default withRoot(Workshops);
