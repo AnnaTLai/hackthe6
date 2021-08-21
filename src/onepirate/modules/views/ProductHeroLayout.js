@@ -41,6 +41,7 @@ function ProductHeroLayout(props) {
           mb: 14,
           display: 'flex',
           flexDirection: 'column',
+          justifyContent: 'space-evenly',
           alignItems: 'center',
         }}
       >
