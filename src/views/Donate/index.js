@@ -7,25 +7,17 @@ import ProductValues from '../../onepirate/modules/views/ProductValues';
 import AppAppBar from '../../onepirate/modules/views/AppAppBar';
 import MainNav from "../../components/navbar";
 
-// export default function Workshops() {
-//     return(
-//         <div>
-//             <MainNav/>
-//             <h1> Workshop! </h1>
-//         </div>
-//     )
-// }
 
-function Workshops() {
+function Donate() {
     return (
       <React.Fragment>
         <AppAppBar />
         <div>
-            <h1> Workshop! </h1>
+            <h1> Donate $$ thanks </h1>
         </div>
         <AppFooter />
       </React.Fragment>
     );
   }
 
-  export default withRoot(Workshops);
+  export default withRoot(Donate);
