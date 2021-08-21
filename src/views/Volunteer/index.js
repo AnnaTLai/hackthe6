@@ -21,7 +21,7 @@ function Workshops() {
       <React.Fragment>
         <AppAppBar />
         <div>
-            <h1> Workshop! </h1>
+            <h1> Sign up to be a volunteer! </h1>
         </div>
         <AppFooter />
       </React.Fragment>
