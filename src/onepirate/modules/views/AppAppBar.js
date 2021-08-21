@@ -31,7 +31,7 @@ function AppAppBar() {
               color="inherit"
               variant="h6"
               underline="none"
-              href="../Home"
+              href="../"
               sx={rightLink}
             >
               {'Get Help'}
@@ -40,7 +40,7 @@ function AppAppBar() {
               color="inherit"
               variant="h6"
               underline="none"
-              href="../Workshops/index.js"
+              href="../workshops"
               sx={{ ...rightLink, color: 'secondary.main' }}
             >
               {'Workshops'}
