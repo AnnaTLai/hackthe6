@@ -13,6 +13,7 @@ import Volunteer from "./views/Volunteer";
 import Donate from "./views/Donate";
 import Home from "./views/Home";
 import Help from "./views/Help";
+import SignUp from "./onepirate/SignUp";
 
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
             </Route>
             <Route path="/help">
               <Help/>
+            </Route>
+            <Route path="/volunteersignup">
+              <SignUp/>
             </Route>
           </Switch>
         </div>
