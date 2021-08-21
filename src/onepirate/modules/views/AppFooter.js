@@ -6,12 +6,15 @@ import Container from '@material-ui/core/Container';
 import Typography from '../components/Typography';
 import TextField from '../components/TextField';
 
+import appFooterFacebook from '../../../images/onepirate/appFooterFacebook.png';
+import appFooterTwitter from '../../../images/onepirate/appFooterTwitter.png';
+
 function Copyright() {
   return (
     <React.Fragment>
       {'© '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        CanYouHelpMeWithMy.tech
       </Link>{' '}
       {new Date().getFullYear()}
     </React.Fragment>
@@ -61,7 +64,7 @@ export default function AppFooter() {
               <Grid item sx={{ display: 'flex' }}>
                 <Box component="a" href="https://material-ui.com/" sx={iconStyle}>
                   <img
-                    src="/static/themes/onepirate/appFooterFacebook.png"
+                    src={ appFooterFacebook }
                     alt="Facebook"
                   />
                 </Box>
@@ -71,7 +74,7 @@ export default function AppFooter() {
                   sx={iconStyle}
                 >
                   <img
-                    src="/static/themes/onepirate/appFooterTwitter.png"
+                    src={ appFooterTwitter }
                     alt="Twitter"
                   />
                 </Box>

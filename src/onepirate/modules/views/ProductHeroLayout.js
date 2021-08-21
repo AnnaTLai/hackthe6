@@ -1,7 +1,8 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@material-ui/core/styles';
-// import { productHeroWonder, productHeroArrowDown } from './images/onepirate';
+import productHeroWonder from '../../../images/onepirate/productHeroWonder.png';
+import productHeroArrowDown from '../../../images/onepirate/productHeroArrowDown.png';
 
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
@@ -44,7 +45,7 @@ function ProductHeroLayout(props) {
         }}
       >
         <img
-          src=""
+          src={ productHeroWonder }
           alt="wonder"
           width="147"
           height="80"
@@ -65,7 +66,7 @@ function ProductHeroLayout(props) {
         <Background sx={sxBackground} />
         <Box
           component="img"
-          src=""
+          src={ productHeroArrowDown }
           height="16"
           width="12"
           alt="arrow down"

@@ -2,9 +2,7 @@ import * as React from 'react';
 import Button from '../components/Button';
 import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
-
-const backgroundImage =
-  require('../../../images/dog.jpg');
+import backgroundImage from '../../../images/dog.jpg';
 
 export default function ProductHero() {
   return (
@@ -18,7 +16,7 @@ export default function ProductHero() {
       {/* Increase the network loading priority of the background image. */}
       <img
         style={{ display: 'none' }}
-        src={backgroundImage}
+        src={ backgroundImage }
         alt="increase priority"
       />
       <Typography color="inherit" align="center" variant="h3" marked="center">

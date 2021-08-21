@@ -5,6 +5,11 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '../components/Typography';
 
+import productCurvyLines from '../../../images/onepirate/productCurvyLines.png';
+import productValues1 from '../../../images/onepirate/productValues1.svg';
+import productValues2 from '../../../images/onepirate/productValues2.svg';
+import productValues3 from '../../../images/onepirate/productValues3.svg';
+
 const item = {
   display: 'flex',
   flexDirection: 'column',
@@ -21,7 +26,7 @@ function ProductValues() {
       <Container sx={{ mt: 15, mb: 30, display: 'flex', position: 'relative' }}>
         <Box
           component="img"
-          src="../../../material-ui/docs/public/static/themes/onepirate/productCurvyLines.png"
+          src={ productCurvyLines }
           alt="curvy lines"
           sx={{ pointerEvents: 'none', position: 'absolute', top: -180 }}
         />
@@ -30,7 +35,7 @@ function ProductValues() {
             <Box sx={item}>
               <Box
                 component="img"
-                src="../../../material-ui/docs/public/static/themes/onepirate/productValues1.svg"
+                src={ productValues1 }
                 alt="suitcase"
                 sx={{ height: 55 }}
               />
@@ -52,7 +57,7 @@ function ProductValues() {
             <Box sx={item}>
               <Box
                 component="img"
-                src="../../../material-ui/docs/public/static/themes/onepirate/productValues2.svg"
+                src={ productValues2 }
                 alt="graph"
                 sx={{ height: 55 }}
               />
@@ -72,7 +77,7 @@ function ProductValues() {
             <Box sx={item}>
               <Box
                 component="img"
-                src="../../../material-ui/docs/public/static/themes/onepirate/productValues3.svg"
+                src={ productValues3 }
                 alt="clock"
                 sx={{ height: 55 }}
               />
