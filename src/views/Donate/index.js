@@ -13,7 +13,7 @@ function Donate() {
       <React.Fragment>
         <AppAppBar />
         <div>
-            <h1> Donate $$ thanks </h1>
+            <h1> You can donate here </h1>
         </div>
         <AppFooter />
       </React.Fragment>
