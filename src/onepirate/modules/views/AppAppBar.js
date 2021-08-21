@@ -31,7 +31,7 @@ function AppAppBar() {
               color="inherit"
               variant="h6"
               underline="none"
-              href="../"
+              href="/"
               sx={rightLink}
             >
               {'Get Help'}
@@ -49,7 +49,7 @@ function AppAppBar() {
               color="inherit"
               variant="h6"
               underline="none"
-              href="#"
+              href="../volunteer"
               sx={rightLink}
             >
               {'Volunteer'}
@@ -58,7 +58,7 @@ function AppAppBar() {
               color="inherit"
               variant="h6"
               underline="none"
-              href="#"
+              href="../donate"
               sx={rightLink}
             >
               {'Donate'}
