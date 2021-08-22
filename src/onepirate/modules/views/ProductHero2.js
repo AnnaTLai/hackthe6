@@ -15,6 +15,7 @@ import SelectSearch from 'react-select-search';
 // import { SearchBar } from 'react-native-elements';
 import { fuzzySearch } from 'react-select-search';
 import '../../../searchBarStyles.css';
+import useSpeechToText from 'react-hook-speech-to-text';
 
 const backgroundImage =
     'https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_960_720.png';
@@ -29,9 +30,10 @@ const styles = (theme) => ({
       width: '300px',
       backgroundColor: '#ffffff',
       borderRadius: 10,
+      height: '50px',
       // fontSize:'20px',
       left: '39%',
-      marginTop: '5%',
+      marginTop: '8%',
       position: 'relative',
       color: 'black',
     },
@@ -43,6 +45,19 @@ const styles = (theme) => ({
       borderRadius: 10,
       // fontSize:'20px',
       left: '30%',
+      position: 'relative',
+      color: 'black',
+      margin: theme.spacing(1),
+      paddingTop: theme.spacing(2),
+    },
+    roundButton3: {
+      marginTop: '8%',
+      // width: '50px',
+      height: '50px',
+      backgroundColor: '#8cc3cb',
+      borderRadius: 10,
+      // fontSize:'20px',
+      left: '40%',
       position: 'relative',
       color: 'black',
       margin: theme.spacing(1),
@@ -159,6 +174,22 @@ const optionsS = [
 
 function ProductHero2(props) {
   const { classes } = props;
+
+  const {
+    error,
+    interimResult,
+    isRecording,
+    results,
+    startSpeechToText,
+    stopSpeechToText,
+  } = useSpeechToText({
+    continuous: true,
+    crossBrowser: true,
+    googleApiKey: 'AIzaSyDzonwNYuQYOHED2FmGF3nP2gqibCE44-4',
+    useLegacyResults: false
+  });
+
+  if (error) return <p>Web Speech API is not available in this browser 🤷‍</p>;
   
   return (
     <ProductHeroLayout backgroundClassName={classes.background}>
@@ -240,7 +271,34 @@ function ProductHero2(props) {
                 Go
             </Button>
           </Container>
-          <Button
+          <div>
+          <Container className={classes.box}>
+            <Button
+                className={classes.roundButton}
+                variant="contained"
+                onClick={isRecording ? stopSpeechToText : startSpeechToText}
+            >
+              <Container className={classes.box}>
+                <MicIcon size="x-large"/>
+                {isRecording ? 'Stop Recording' : 'Say Your Question'}
+              </Container>
+            </Button>
+            <Button
+                className={classes.roundButton3}
+                component="a"
+                href="#"
+              >
+                Go
+            </Button>
+            </Container>
+            {/* <button onClick={isRecording ? stopSpeechToText : startSpeechToText}>
+              {isRecording ? 'Stop Recording' : 'Start Recording'}
+            </button> */}
+            <ul>
+              {isRecording ? interimResult && <li>{interimResult}</li> : results[results.length - 1].transcript}
+            </ul>
+          </div>
+          {/* <Button
               className={classes.roundButton}
               variant="contained"
               component="a"
@@ -250,7 +308,7 @@ function ProductHero2(props) {
               <MicIcon size="x-large"/>
               Say Your Question
             </Container>
-          </Button>
+          </Button> */}
       </Container>
     </Box>
     {/* <SearchBar
