@@ -7,7 +7,6 @@ import AppFooter from '../../onepirate/modules/views/AppFooter';
 import ProductHero from '../../onepirate/modules/views/ProductHero';
 import ProductValues from '../../onepirate/modules/views/ProductValues';
 import AppAppBar from '../../onepirate/modules/views/AppAppBar';
-import MainNav from "../../components/navbar";
 
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';

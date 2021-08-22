@@ -4,7 +4,6 @@ import AppFooter from '../../onepirate/modules/views/AppFooter';
 import ProductHero from '../../onepirate/modules/views/ProductHero';
 import ProductValues from '../../onepirate/modules/views/ProductValues';
 import AppAppBar from '../../onepirate/modules/views/AppAppBar';
-import MainNav from "../../components/navbar";
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -75,6 +74,10 @@ const MountTest = () => {
 }
 
 const useStyles = makeStyles((theme) => ({
+    root:{
+        height:'80vh',
+        backgroundColor: theme.palette.secondary.light
+    },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -97,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
 function Volunteer() {
    const classes = useStyles();
 
-   if (googleuser != null){
+   if (googleuser == null){
      console.log('happy')
 
      return (
@@ -165,7 +168,7 @@ function Volunteer() {
           />
 
           <Grid container>
-            <Grid item xs>
+            <Grid item xs={12}>
             <Button
               type="submit"
               fullWidth
@@ -176,7 +179,7 @@ function Volunteer() {
               Sign In
             </Button>
             </Grid>
-            <Grid item>
+            <Grid item xs={12}>
             <GoogleLogin
               clientId={clientId}
               scope= {'https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile', 'openid'}
@@ -198,15 +201,15 @@ function Volunteer() {
           </Grid>
 
 
-          <Grid container>
+          <Grid container >
             <Grid item xs>
               <Link href="#" variant="body2">
                 Forgot password?
               </Link>
             </Grid>
-            <Grid item>
+            <Grid item xs>
               <Link href="/volunteersignup" variant="body2">
-                {"Don't have an account? Sign Up with email"}
+                {"Sign Up"}
               </Link>
             </Grid>
           </Grid>
