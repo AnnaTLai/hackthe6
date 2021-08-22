@@ -1,4 +1,6 @@
 import withRoot from '../../onepirate/modules/withRoot';
+
+import styles from './profile.css';
 // --- Post bootstrap -----
 import AppFooter from '../../onepirate/modules/views/AppFooter';
 import ProductHero from '../../onepirate/modules/views/ProductHero';
@@ -16,17 +18,27 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { createTheme, withStyles, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 
 import { GoogleLogin, GoogleLogout , useGoogleLogin} from 'react-google-login'
 import React, { useState } from "react";
+import AssignmentIndRoundedIcon from '@material-ui/icons/AssignmentIndRounded';
+import { green} from '@material-ui/core/colors';
+
 
 const clientId = '1043334376061-cs43ctrjk9rghpa3akq98ko30hu011ad.apps.googleusercontent.com'
 //This is our Google Client ID
 
+
 var googleuser = {};
 var isSignedIn = false;
+
+const theme = createTheme({
+  palette: {
+    primary: green,
+  },
+});
 
 
 const AuthPage = (props) => {
@@ -34,12 +46,55 @@ const AuthPage = (props) => {
         <React.Fragment>
             <AppAppBar/>
 
-            <div>
+            <div className={styles.root}>
+          <div id={"info"}>
+            <a href="#">
+              <AssignmentIndRoundedIcon style={{ fontSize: 120 }} color="secondary"/>
+            </a>
+            <h2>
+              <h2>{props.firstName} {props.lastName}</h2>
+            </h2>
+            <h3>Toronto based</h3>
+          </div>
+          <div id={"state"}>
+            <ul>
+              <li>
+                <a href="#" target="_blank">
+                  <i>3</i>
+                  <span>People helped</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <i>2</i>
+                  <span>Friends</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank">
+                  <i>1</i>
+                  <span>Following</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+            <div id={"info"}>
 
                 <b>
-                    You are logged in. Welcome {props.firstName} {props.lastName} {props.img} the volunteer dashboard!
+                    You are logged in. Welcome, {props.firstName}, to the volunteer dashboard!
                 </b>
+
             </div>
+
+            <Button variant="contained" color='primary'>
+              Start helping Now
+            </Button>
+
+            <br />
+            <br />
+
 
             <div>
                 <GoogleLogout clientId={clientId} buttonText="Logout" onLogoutSuccess={props.logout}/>
@@ -70,11 +125,15 @@ const AuthPage = (props) => {
   return <button onClick={() => toggleShow(true)}>show button</button>
 }*/
 
+
 const useStyles = makeStyles((theme) => ({
     root:{
         height:'80vh',
         backgroundColor: theme.palette.secondary.light
+    },margin: {
+      margin: theme.spacing(1),
     },
+
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
