@@ -15,7 +15,7 @@ function Copyright() {
       <React.Fragment>
         {'© '}
         <Link color="inherit" href="https://material-ui.com/">
-          CanYouHelpMeWithMy.tech
+          CanYouHelpWithMy.tech
         </Link>{' '}
         {new Date().getFullYear()}
       </React.Fragment>
@@ -24,7 +24,7 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    backgroundColor: theme.palette.secondary.light,
+    backgroundColor: 'white',
 
   },
   container: {
