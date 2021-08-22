@@ -10,8 +10,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import ImgMediaCard from "../../components/workshopCards";
-import style from './style.css'
-import Divider from "@material-ui/core/Divider";
 const calendar_key = "AIzaSyDR4rE1jSfgxGqLfcRMVOX_5Q0BRd8FFvA";
 const calendar_id = '5k5ak8miiagrpmjbf7qd9u18k4@group.calendar.google.com';
 let calendars = [
