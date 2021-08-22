@@ -4,8 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '../components/Typography';
-import productValues1 from '../../../images/onepirate/productValues1.svg';
-import productValues2 from '../../../images/onepirate/productValues2.svg';
+import productValues1 from '../../../images/helpingHand.svg';
+import productValues2 from '../../../images/workshop.svg';
 import productValues3 from '../../../images/onepirate/productValues3.svg';
 
 const styles = (theme) => ({
@@ -28,6 +28,10 @@ const styles = (theme) => ({
   },
   image: {
     height: 55,
+    marginBottom: theme.spacing(1),
+  },
+  image2: {
+    height: 65,
   },
   title: {
     marginTop: theme.spacing(5),
@@ -50,32 +54,33 @@ function ProductValues(props) {
             <Grid item xs={12} md={4}>
               <div className={classes.item}>
                 <img
-                    className={classes.image}
+                    className={classes.image2}
                     src={ productValues1}
                     alt="suitcase"
                 />
                 <Typography variant="h6" className={classes.title}>
-                  The best luxury hotels
+                  Volunteer
                 </Typography>
                 <Typography variant="h5">
-                  {'From the latest trendy boutique hotel to the iconic palace with XXL pool'}
-                  {', go for a mini-vacation just a few subway stops away from your home.'}
+                  {'Help reduce the digital divide by volunteering 1-10 hours a week to'}
+                  {' teach less tech-savvy community members about using computers, the'}
+                  {' Internet, and other technologies.'}
                 </Typography>
               </div>
             </Grid>
             <Grid item xs={12} md={4}>
               <div className={classes.item}>
                 <img
-                    className={classes.image}
+                    className={classes.image2}
                     src={ productValues2 }
                     alt="graph"
                 />
                 <Typography variant="h6" className={classes.title}>
-                  New experiences
+                  Workshops
                 </Typography>
                 <Typography variant="h5">
-                  {'Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… '}
-                  {'your Sundays will not be alike.'}
+                  {'We offer free workshops on various topics such as online banking, internet setup'}
+                  {' and usage, and social media and data privacy to educate the general public.'}
                 </Typography>
               </div>
             </Grid>
@@ -87,11 +92,11 @@ function ProductValues(props) {
                     alt="clock"
                 />
                 <Typography variant="h6" className={classes.title}>
-                  Exclusive rates
+                  Donate
                 </Typography>
                 <Typography variant="h5">
-                  {'By registering, you will access specially negotiated rates '}
-                  {'that you will not find anywhere else.'}
+                  {'All proceeds will be used to purchase technologies such as computers and tablets'}
+                  {' for students and families from underpriviledged communities.'}
                 </Typography>
               </div>
             </Grid>

@@ -154,10 +154,10 @@ function ProductHero2(props) {
       className={classes.box}
       >
       <Container className={classes.container}>
-        <Typography color="#000000" align="center" variant="h3">
+        <Typography color="inherit" align="center" variant="h3">
           How can we help you today?
         </Typography>
-        <Typography color="#000000" align="center" variant="h4">
+        <Typography color="inherit" align="center" variant="h4">
         Click one of the buttons below, or search by text or voice to get assistance.
         </Typography>
           <Grid className={classes.grid} xs={12} md={4} >

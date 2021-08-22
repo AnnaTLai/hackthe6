@@ -1,39 +1,55 @@
-import * as React from 'react';
-import Box from '@material-ui/core/Box';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
+import { withStyles } from '@material-ui/core/styles';
 import Typography from '../components/Typography';
 
-function ProductSmokingHero() {
+const styles = (theme) => ({
+  root: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginTop: theme.spacing(9),
+    marginBottom: theme.spacing(9),
+  },
+  button: {
+    border: '4px solid currentColor',
+    borderRadius: 0,
+    height: 'auto',
+    padding: theme.spacing(2, 5),
+  },
+  link: {
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
+  },
+  buoy: {
+    width: 60,
+  },
+});
+
+function ProductSmokingHero(props) {
+  const { classes } = props;
+
   return (
-    <Container
-      component="section"
-      sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', my: 9 }}
-    >
-      <Button
-        sx={{
-          border: '4px solid currentColor',
-          borderRadius: 0,
-          height: 'auto',
-          py: 2,
-          px: 5,
-        }}
-      >
-        <Typography variant="h4" component="span">
-          Got any questions? Need help?
-        </Typography>
-      </Button>
-      <Typography variant="subtitle1" sx={{ my: 3 }}>
-        We are here to help. Get in touch!
+    <Container className={classes.root} component="section">
+      
+      <Typography variant="h4" component="span">
+        ABOUT US
       </Typography>
-      <Box
-        component="img"
-        src="/static/themes/onepirate/producBuoy.svg"
-        alt="buoy"
-        sx={{ width: 60 }}
-      />
+  
+      <Typography variant="subtitle1" className={classes.link}>
+        {'We are a non-profit organization whose goal is to increase accessibility to technology'}
+        {' and reduce technological barriers by offering free educational workshops and immeditate 1-1 technological support to '}
+        {'the general public, but especially to marginalized groups and underpriviledged members'}
+        {' of society.'}
+      </Typography>
     </Container>
   );
 }
 
-export default ProductSmokingHero;
+ProductSmokingHero.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(ProductSmokingHero);
