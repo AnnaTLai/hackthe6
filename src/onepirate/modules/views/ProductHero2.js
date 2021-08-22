@@ -4,17 +4,108 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '../components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
-import backgroundImage from '../../../images/dog.jpg';
+import MicIcon from '@material-ui/icons/Mic';
+
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+
+
 import Box from '@material-ui/core/Box';
 import SelectSearch from 'react-select-search';
 // import { SearchBar } from 'react-native-elements';
 import { fuzzySearch } from 'react-select-search';
 import '../../../searchBarStyles.css';
 
+const backgroundImage =
+    'https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_960_720.png';
+
+const styles = (theme) => ({
+    background: {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundColor: '#7fc7d9', // Average color of the background image.
+        backgroundPosition: 'center',
+    },
+    roundButton: {
+      width: '300px',
+      backgroundColor: '#ffffff',
+      borderRadius: 10,
+      // fontSize:'20px',
+      left: '39%',
+      marginTop: '5%',
+      position: 'relative',
+      color: 'black',
+    },
+    button: {
+        // display: 'flex',
+        marginTop: '5%',
+        minWidth: 200,
+        backgroundColor: '#8cc3cb',
+        fontSize:'20px',
+        borderRadius: 50,
+        flexDirection: 'row',
+        color: 'black',
+        margin: theme.spacing(2),
+    },
+    h5: {
+        marginBottom: theme.spacing(4),
+        marginTop: theme.spacing(4),
+        [theme.breakpoints.up('sm')]: {
+            marginTop: theme.spacing(10),
+        },
+    },
+    root: {
+      display: 'flex',
+      overflow: 'hidden',
+      backgroundColor: theme.palette.secondary.light,
+    },
+    container: {
+      marginTop: theme.spacing(15),
+      marginBottom: theme.spacing(30),
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+      display: 'flex',
+      position: 'relative',
+    },
+    item: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: theme.spacing(0, 5),
+    },
+    image: {
+      height: 55,
+    },
+    box: {
+      // display: 'flex', 
+      // overflow: 'hidden', 
+      // color: 'secondary.light',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    title: {
+      marginTop: theme.spacing(5),
+      marginBottom: theme.spacing(5),
+    },
+    curvyLines: {
+      pointerEvents: 'none',
+      position: 'absolute',
+      top: -180,
+    },
+    grid: {
+      marginTop: theme.spacing(5),
+      marginBottom: theme.spacing(5),
+    },
+    more: {
+        marginTop: theme.spacing(2),
+    },
+});
+
 const optionsS = [
   {name: 'email'},
   {name: 'facebook'},
   {name: 'internet connection'},
+  {name: 'smart phone'},
+  {name: 'text messaging'},
 ];
 
 // const [data, setData] = useState(optionsS);
@@ -31,13 +122,6 @@ const optionsS = [
 //       borderBottomWidth:1
 //   }
 // });
-
-const item = {
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  px: 5,
-};
 
 // const updateQuery = (input) => {
 //   setQuery(input);
@@ -60,107 +144,93 @@ const item = {
 // }
 
 
-export default function ProductHero2() {
+function ProductHero2(props) {
+  const { classes } = props;
+  
   return (
-    <ProductHeroLayout
-      sxBackground={{
-        backgroundImage: backgroundImage,
-        backgroundColor: '#7fc7d9', // Average color of the background image.
-        backgroundPosition: 'center',
-      }}
-    >
+    <ProductHeroLayout backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
-      <img
-        style={{ display: 'none' }}
-        src={ backgroundImage }
-        alt="increase priority"
-      />
       <Box
-      component="section"
-      sx={{ display: 'flex', overflow: 'hidden', bgcolor: 'secondary.light' }}
+      className={classes.box}
       >
-      <Container sx={{ mt: 15, mb: 30, display: 'flex', position: 'relative' }}>
-        <Typography color="#000000" align="center" variant="h3" marked="center">
-          What do you need help with?
+      <Container className={classes.container}>
+        <Typography color="#000000" align="center" variant="h3">
+          How can we help you today?
         </Typography>
-        <Typography color="#000000" align="center" variant="h3" marked="center">
-        Click on a button below to get assistance.
+        <Typography color="#000000" align="center" variant="h4">
+        Click one of the buttons below, or search by text or voice to get assistance.
         </Typography>
-          <Grid item xs={12} md={4}>
+          <Grid className={classes.grid} xs={12} md={4} >
             <Button
-              color="secondary"
-              variant="contained"
-              size="large"
+              className={classes.button}
               component="a"
               href="#"
-              sx={item}
             >
               Email
             </Button>
             <Button
-              color="secondary"
-              variant="contained"
-              size="large"
+              className={classes.button}
               component="a"
               href="#"
-              sx={item}
             >
               Phone
             </Button>
             <Button
-              color="secondary"
-              variant="contained"
-              size="large"
+              className={classes.button}
               component="a"
               href="#"
-              sx={item}
             >
               Tablet/iPad
             </Button>
             <Button
-              color="secondary"
+              className={classes.button}
               variant="contained"
-              size="large"
               component="a"
               href="#"
-              sx={item}
             >
               Internet
             </Button>
             <Button
-              color="secondary"
-              variant="contained"
-              size="large"
+              className={classes.button}
               component="a"
               href="#"
-              sx={item}
             >
               Windows
             </Button>
             <Button
-              color="secondary"
-              variant="contained"
-              size="large"
+              className={classes.button}
               component="a"
               href="#"
-              sx={item}
             >
               Mac
             </Button>
             <Button
-              color="secondary"
-              variant="contained"
-              size="large"
+              className={classes.button}
               component="a"
               href="#"
-              sx={item}
             >
               Other
             </Button>
           </Grid>
+          <SelectSearch
+              options={optionsS}
+              search
+              filterOptions={fuzzySearch}
+              placeholder="Click here and type in your question to search"
+          />
+          <Button
+              className={classes.roundButton}
+              variant="contained"
+              component="a"
+              href="#"
+          >
+            <Container className={classes.box}>
+              <MicIcon size="x-large"/>
+              Say Your Question
+            </Container>
+          </Button>
       </Container>
     </Box>
-    
     {/* <SearchBar
       onChangeText={updateQuery}
       value={query}   
@@ -174,14 +244,12 @@ export default function ProductHero2() {
         </Text>} 
     /> */}
 
-    <SelectSearch
-        options={optionsS}
-        search
-        filterOptions={fuzzySearch}
-        emptyMessage={() => <div style={{ textAlign: 'center', fontSize: '0.8em' }}>Not found renderer</div>}
-        placeholder="Click here and type in your question to search"
-    />
-
     </ProductHeroLayout>
   );
 }
+
+ProductHero2.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(ProductHero2);
