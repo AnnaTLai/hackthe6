@@ -97,7 +97,7 @@ const useStyles = makeStyles((theme) => ({
 function Volunteer() {
    const classes = useStyles();
 
-   if (isSignedIn == true){
+   if (googleuser != null){
      console.log('happy')
 
      return (
@@ -107,7 +107,7 @@ function Volunteer() {
          <div>
 
          <b>
-         You are logged in
+         You are logged in. Welcome to the volunteer dashboard!
          </b>
        </div>
 
