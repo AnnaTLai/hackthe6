@@ -1,86 +1,78 @@
-import * as React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { styled } from '@material-ui/core/styles';
-import productHeroWonder from '../../../images/onepirate/productHeroWonder.png';
-import productHeroArrowDown from '../../../images/onepirate/productHeroArrowDown.png';
-
+import clsx from 'clsx';
+import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
+import productHeroArrowDown from '../../../images/onepirate/productHeroArrowDown.png';
+import ArrowDownwardRoundedIcon from '@material-ui/icons/ArrowDownwardRounded';
 
-const ProductHeroLayoutRoot = styled('section')(({ theme }) => ({
-  color: theme.palette.common.white,
-  position: 'relative',
-  display: 'flex',
-  alignItems: 'center',
-  [theme.breakpoints.up('sm')]: {
-    height: '80vh',
-    minHeight: 500,
-    maxHeight: 1300,
-  },
-}));
-
-const Background = styled(Box)(() => ({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  zIndex: -2,
-}));
+const styles = (theme) => ({
+    root: {
+        color: theme.palette.common.white,
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        [theme.breakpoints.up('sm')]: {
+            height: '100vh',
+            minHeight: 500,
+            maxHeight: 1300,
+        },
+    },
+    container: {
+        marginTop: theme.spacing(3),
+        marginBottom: theme.spacing(14),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    backdrop: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        backgroundColor: theme.palette.common.black,
+        opacity: 0.5,
+        zIndex: -1,
+    },
+    background: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        zIndex: -2,
+    },
+    arrowDown: {
+        position: 'absolute',
+        bottom: theme.spacing(9),
+        fontSize: '50px',
+        color: '#f6d9a1'
+    },
+});
 
 function ProductHeroLayout(props) {
-  const { sxBackground, children } = props;
+    const { backgroundClassName, children, classes } = props;
 
-  return (
-    <ProductHeroLayoutRoot>
-      <Container
-        sx={{
-          mt: 3,
-          mb: 14,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-evenly',
-          alignItems: 'center',
-        }}
-      >
-        <img
-          src={ productHeroWonder }
-          alt="wonder"
-          width="147"
-          height="80"
-        />
-        {children}
-        <Box
-          sx={{
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            backgroundColor: 'common.black',
-            opacity: 0.5,
-            zIndex: -1,
-          }}
-        />
-        <Background sx={sxBackground} />
-        <Box
-          component="img"
-          src={ productHeroArrowDown }
-          height="16"
-          width="12"
-          alt="arrow down"
-          sx={{ position: 'absolute', bottom: 32 }}
-        />
-      </Container>
-    </ProductHeroLayoutRoot>
-  );
+    return (
+        <section className={classes.root}>
+            <Container className={classes.container}>
+
+                {children}
+                <div className={classes.backdrop} />
+                <div className={clsx(classes.background, backgroundClassName)} />
+                <ArrowDownwardRoundedIcon className={classes.arrowDown}/>
+            </Container>
+        </section>
+    );
 }
 
 ProductHeroLayout.propTypes = {
-  children: PropTypes.node,
-  sxBackground: PropTypes.object,
+    backgroundClassName: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
+    classes: PropTypes.object.isRequired,
 };
 
-export default ProductHeroLayout;
+export default withStyles(styles)(ProductHeroLayout);

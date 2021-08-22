@@ -1,0 +1,8 @@
+.custom-link:hover {
+    color: #ffffff;
+    text-decoration-color: white;
+}
+
+.custom-link {
+    background-color: #6096a0;
+}

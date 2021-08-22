@@ -3,6 +3,8 @@ import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
 import AppBar from '../components/AppBar';
 import Toolbar from '../components/Toolbar';
+import './AppAppBar-styles.css';
+import {Button} from "@material-ui/core";
 
 const rightLink = {
   fontSize: 16,
@@ -27,42 +29,46 @@ function AppAppBar() {
           </Link>
           </Box>
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'space-between' }}>
-            <Link
-              color="inherit"
-              variant="h6"
+            <Button
+                style={{backgroundColor: "#77c6c6"}}
+                className={'custom-link'}
+              variant="contained"
               underline="none"
-              href="/"
+              href="/help"
               sx={rightLink}
             >
-              {'Get Help'}
-            </Link>
-            <Link
-              color="inherit"
-              variant="h6"
+              Get Help
+            </Button>
+            <Button
+                style={{backgroundColor: "#77c6c6"}}
+                className={'custom-link'}
+                variant="contained"
               underline="none"
               href="../workshops"
               sx={{ ...rightLink, color: 'secondary.main' }}
             >
               {'Workshops'}
-            </Link>
-            <Link
-              color="inherit"
-              variant="h6"
+            </Button>
+            <Button
+                style={{backgroundColor: "#77c6c6"}}
+                className={'custom-link'}
+                variant="contained"
               underline="none"
               href="../volunteer"
               sx={rightLink}
             >
               {'Volunteer'}
-            </Link>
-            <Link
-              color="inherit"
-              variant="h6"
+            </Button>
+            <Button
+                style={{backgroundColor: "#ff3366"}}
+                className={'custom-link'}
+                variant="contained"
               underline="none"
               href="../donate"
               sx={rightLink}
             >
               {'Donate'}
-            </Link>
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
