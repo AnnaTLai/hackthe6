@@ -34,9 +34,6 @@ const ImgMediaCard = (props) => {
                     <Typography gutterBottom variant="h5" component="h2">
                         {props.title}
                     </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {props.description}
-                    </Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions>

@@ -28,32 +28,29 @@ const clientId = '1043334376061-cs43ctrjk9rghpa3akq98ko30hu011ad.apps.googleuser
 var googleuser = {};
 var isSignedIn = false;
 
-const success = response => {
-  console.log(response.profileObj.email) // eslint-disable-line
-  console.log(response.profileObj.givenName) // eslint-disable-line
-  console.log(response.profileObj.familyName) // eslint-disable-line
-  //console.log(response.profileObj.imageURL) // eslint-disable-line
-  //console.log(esponse.isSignedIn) // eslint-disable-line
 
-  googleuser = response;
-  isSignedIn = true;
+const AuthPage = (props) => {
+    return (
+        <React.Fragment>
+            <AppAppBar/>
 
+            <div>
+
+                <b>
+                    You are logged in. Welcome {props.firstName} the volunteer dashboard!
+                </b>
+            </div>
+
+            <div>
+                <GoogleLogout clientId={clientId} buttonText="Logout" onLogoutSuccess={props.logout}/>
+            </div>
+
+
+        </React.Fragment>
+    )
 }
 
-const error = response => {
-  console.error(response) // eslint-disable-line
-  isSignedIn = false;
-}
-
-const loading = () => {
-  console.log('loading') // eslint-disable-line
-}
-
-const logout = () => {
-  console.log('logout') // eslint-disable-line
-}
-
-const MountTest = () => {
+/*const MountTest = () => {
   const [showButton, toggleShow] = useState(true)
 
   if (showButton) {
@@ -71,7 +68,7 @@ const MountTest = () => {
     )
   }
   return <button onClick={() => toggleShow(true)}>show button</button>
-}
+}*/
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -97,131 +94,149 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function Volunteer() {
-   const classes = useStyles();
+    const [state, setState] = useState({
+        authenticated: false,
+        email: '',
+        firstName: '',
+        lastName:''
+    });
+    const classes = useStyles();
 
-   if (googleuser == null){
-     console.log('happy')
+    const success =  (response) => {
+        //if (token) logIn({ token, userId, displayName });
+            setState({authenticated: true, email: response.profileObj.email, firstName: response.profileObj.givenName, lastName: response.profileObj.familyName});
+        console.log(response.profileObj.email) // eslint-disable-line
+        console.log(response.profileObj.givenName) // eslint-disable-line
+        console.log(response.profileObj.familyName) // eslint-disable-line
+        //console.log(response.profileObj.imageURL) // eslint-disable-line
+        //console.log(esponse.isSignedIn) // eslint-disable-line
 
-     return (
-       <React.Fragment>
-         <AppAppBar />
+        googleuser = response;
+        isSignedIn = true;
 
-         <div>
+    }
 
-         <b>
-         You are logged in. Welcome to the volunteer dashboard!
-         </b>
-       </div>
+    const error = response => {
+        console.error(response) // eslint-disable-line
+        isSignedIn = false;
+    }
 
-       <div>
-         <GoogleLogout buttonText="Logout" onLogoutSuccess={logout} />
-       </div>
+    const loading = () => {
+        console.log('loading') // eslint-disable-line
+    }
 
-
-
-       </React.Fragment>
-     );
-
-
-   } else {
-     console.log('Please log in as a voluntter')
-     return (
-       <React.Fragment>
-         <AppAppBar />
-
-         <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <form className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-
-          <Grid container>
-            <Grid item xs={12}>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
-            </Grid>
-            <Grid item xs={12}>
-            <GoogleLogin
-              clientId={clientId}
-              scope= {'https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile', 'openid'}
-              onSuccess={success}
-              onFailure={error}
-              onRequest={loading}
-              offline={false}
-              approvalPrompt="force"
-              responseType="id_token"
-              isSignedIn = {true}
-              theme="dark"
-              prompt="consent"
-              className='button'
-              style={{ color: 'red'}}
-              cookiePolicy={'single_host_origin'}
-              >
-            </GoogleLogin>
-            </Grid>
-          </Grid>
+    const logout = () => {
+        console.log('logout') // eslint-disable-line
+    }
 
 
-          <Grid container >
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item xs>
-              <Link href="/volunteersignup" variant="body2">
-                {"Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-    </Container>
+   return (
+           <div>
+               {
+                   state.authenticated ?
 
-         <AppFooter />
-       </React.Fragment>
-     );
-   }
+                       <AuthPage logout={logout} firstName={state.firstName}/>
+                       :
+                       <React.Fragment>
+                           <AppAppBar/>
 
+                           <Container component="main" maxWidth="xs">
+                               <CssBaseline/>
+                               <div className={classes.paper}>
+                                   <Avatar className={classes.avatar}>
+                                       <LockOutlinedIcon/>
+                                   </Avatar>
+                                   <Typography component="h1" variant="h5">
+                                       Sign in
+                                   </Typography>
+                                   <form className={classes.form} noValidate>
+                                       <TextField
+                                           variant="outlined"
+                                           margin="normal"
+                                           required
+                                           fullWidth
+                                           id="email"
+                                           label="Email Address"
+                                           name="email"
+                                           autoComplete="email"
+                                           autoFocus
+                                       />
+                                       <TextField
+                                           variant="outlined"
+                                           margin="normal"
+                                           required
+                                           fullWidth
+                                           name="password"
+                                           label="Password"
+                                           type="password"
+                                           id="password"
+                                           autoComplete="current-password"
+                                       />
+                                       <FormControlLabel
+                                           control={<Checkbox value="remember" color="primary"/>}
+                                           label="Remember me"
+                                       />
+
+                                       <Grid container>
+                                           <Grid item xs={12}>
+                                               <Button
+                                                   type="submit"
+                                                   fullWidth
+                                                   variant="contained"
+                                                   color="primary"
+                                                   className={classes.submit}
+                                               >
+                                                   Sign In
+                                               </Button>
+                                           </Grid>
+                                           <Grid item xs={12}>
+                                               <GoogleLogin
+                                                   clientId={clientId}
+                                                   scope={'https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile', 'openid'}
+                                                   onSuccess={success}
+                                                   onFailure={error}
+                                                   onRequest={loading}
+                                                   offline={false}
+                                                   approvalPrompt="force"
+                                                   responseType="id_token"
+                                                   isSignedIn={true}
+                                                   theme="dark"
+                                                   prompt="consent"
+                                                   className='button'
+                                                   style={{color: 'red'}}
+                                                   cookiePolicy={'single_host_origin'}
+                                               >
+                                               </GoogleLogin>
+                                           </Grid>
+                                       </Grid>
+
+
+                                       <Grid container>
+                                           <Grid item xs>
+                                               <Link href="#" variant="body2">
+                                                   Forgot password?
+                                               </Link>
+                                           </Grid>
+                                           <Grid item xs>
+                                               <Link href="/volunteersignup" variant="body2">
+                                                   {"Sign Up"}
+                                               </Link>
+                                           </Grid>
+                                       </Grid>
+                                   </form>
+                               </div>
+                           </Container>
+
+                           <AppFooter/>
+                       </React.Fragment>
+               }
+           </div>
+
+);
 }
+
+
 
   export default withRoot(Volunteer);
