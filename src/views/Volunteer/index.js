@@ -37,7 +37,7 @@ const AuthPage = (props) => {
             <div>
 
                 <b>
-                    You are logged in. Welcome {props.firstName} the volunteer dashboard!
+                    You are logged in. Welcome {props.firstName} {props.lastName} {props.img} the volunteer dashboard!
                 </b>
             </div>
 
@@ -100,14 +100,16 @@ function Volunteer() {
         authenticated: false,
         email: '',
         firstName: '',
-        lastName:''
+        lastName:'',
+        img: '',
     });
     const classes = useStyles();
 
     const success =  (response) => {
         //if (token) logIn({ token, userId, displayName });
-            setState({authenticated: true, email: response.profileObj.email, firstName: response.profileObj.givenName, lastName: response.profileObj.familyName});
-        console.log(response.profileObj.email) // eslint-disable-line
+            setState({authenticated: true, email: response.profileObj.email, firstName: response.profileObj.givenName, lastName: response.profileObj.familyName, img: response.profileObj.imageUrl});
+
+            console.log(response.profileObj.email) // eslint-disable-line
         console.log(response.profileObj.givenName) // eslint-disable-line
         console.log(response.profileObj.familyName) // eslint-disable-line
         //console.log(response.profileObj.imageURL) // eslint-disable-line
@@ -137,7 +139,7 @@ function Volunteer() {
                {
                    state.authenticated ?
 
-                       <AuthPage logout={logout} firstName={state.firstName}/>
+                       <AuthPage logout={logout} firstName={state.firstName} lastName={state.lastName} email={state.lastName} img={state.img}/>
                        :
                        <React.Fragment>
                            <AppAppBar/>
