@@ -2,6 +2,9 @@
   "name": "hackthe6",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+   "node": "12.11.1"
+ },
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@ericz1803/react-google-calendar": "^4.2.1",
