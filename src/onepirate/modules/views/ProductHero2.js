@@ -35,6 +35,19 @@ const styles = (theme) => ({
       position: 'relative',
       color: 'black',
     },
+    roundButton2: {
+      marginTop: '4%',
+      // width: '50px',
+      height: '50px',
+      backgroundColor: '#8cc3cb',
+      borderRadius: 10,
+      // fontSize:'20px',
+      left: '30%',
+      position: 'relative',
+      color: 'black',
+      margin: theme.spacing(1),
+      paddingTop: theme.spacing(2),
+    },
     button: {
         // display: 'flex',
         marginTop: '5%',
@@ -76,11 +89,11 @@ const styles = (theme) => ({
       height: 55,
     },
     box: {
-      // display: 'flex', 
+      display: 'flex', 
       // overflow: 'hidden', 
       // color: 'secondary.light',
       flexDirection: 'row',
-      justifyContent: 'space-between',
+      // justifyContent: 'space-between',
     },
     title: {
       marginTop: theme.spacing(5),
@@ -212,12 +225,21 @@ function ProductHero2(props) {
               Other
             </Button>
           </Grid>
-          <SelectSearch
-              options={optionsS}
-              search
-              filterOptions={fuzzySearch}
-              placeholder="Click here and type in your question to search"
-          />
+          <Container className={classes.box}>
+            <SelectSearch
+                options={optionsS}
+                search
+                filterOptions={fuzzySearch}
+                placeholder="Click here and type in your question to search"
+            />
+            <Button
+                className={classes.roundButton2}
+                component="a"
+                href="#"
+              >
+                Go
+            </Button>
+          </Container>
           <Button
               className={classes.roundButton}
               variant="contained"
