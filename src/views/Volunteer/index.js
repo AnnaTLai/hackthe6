@@ -29,6 +29,7 @@ import { green} from '@material-ui/core/colors';
 
 const clientId = '1043334376061-cs43ctrjk9rghpa3akq98ko30hu011ad.apps.googleusercontent.com'
 //This is our Google Client ID
+const videoSite = 'https://video-app-3458-8512-dev.twil.io/?passcode=03837734588512';
 
 
 var googleuser = {};
@@ -42,63 +43,67 @@ const theme = createTheme({
 
 
 const AuthPage = (props) => {
+    const classes = useStyles();
+
     return (
         <React.Fragment>
-            <AppAppBar/>
 
-            <div className={styles.root}>
-          <div id={"info"}>
-            <a href="#">
-              <AssignmentIndRoundedIcon style={{ fontSize: 120 }} color="secondary"/>
-            </a>
-            <h2>
-              <h2>{props.firstName} {props.lastName}</h2>
-            </h2>
-            <h3>Toronto based</h3>
-          </div>
-          <div id={"state"}>
-            <ul>
-              <li>
-                <a href="#" target="_blank">
-                  <i>3</i>
-                  <span>People helped</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank">
-                  <i>2</i>
-                  <span>Friends</span>
-                </a>
-              </li>
-              <li>
-                <a href="#" target="_blank">
-                  <i>1</i>
-                  <span>Following</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+            <div className={classes.root}>
+                <div id={"info"}>
+                    {/*<AssignmentIndRoundedIcon style={{ fontSize: 120 }} color="secondary"/>*/}
+                    <Avatar alt={props.firstName + ' ' + props.lastName} src={props.img}  variant={'circular'} className={classes.sizeAvatar}/>
+                    <h2>
+                        <h2>{props.firstName} {props.lastName}</h2>
+                    </h2>
+                    <h3>Toronto based</h3>
+                </div>
+                <div id={"state"}>
+                    <ul>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i>3</i>
+                                <span>People helped</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i>2</i>
+                                <span>Friends</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i>1</i>
+                                <span>Following</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div id={"info"}>
 
-            <div id={"info"}>
+                    <b>
+                        You are logged in. Welcome, {props.firstName}, to the volunteer dashboard!
+                    </b>
+                    <br />
+                    <br />
 
-                <b>
-                    You are logged in. Welcome, {props.firstName}, to the volunteer dashboard!
-                </b>
+                    <Button variant="contained" color='primary' href={videoSite}>
+                        Start helping Now
+                    </Button>
+
+                    <br />
+                    <br />
+
+
+                    <div>
+                        <GoogleLogout clientId={clientId} buttonText="Logout" onLogoutSuccess={props.logout}/>
+                    </div>
+                </div>
+
 
             </div>
 
-            <Button variant="contained" color='primary'>
-              Start helping Now
-            </Button>
 
-            <br />
-            <br />
-
-
-            <div>
-                <GoogleLogout clientId={clientId} buttonText="Logout" onLogoutSuccess={props.logout}/>
-            </div>
 
 
         </React.Fragment>
@@ -128,22 +133,32 @@ const AuthPage = (props) => {
 
 const useStyles = makeStyles((theme) => ({
     root:{
-        height:'80vh',
+        height:'100vh',
         backgroundColor: theme.palette.secondary.light
     },margin: {
       margin: theme.spacing(1),
     },
 
   paper: {
-    marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
   avatar: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(3),
     backgroundColor: theme.palette.secondary.main,
   },
+    sizeAvatar: {
+        height: theme.spacing(15),
+        width: theme.spacing(15),
+        marginBottom: theme.spacing(1),
+        alignContent: 'center',
+        textAlign: 'center',
+        marginTop: theme.spacing(1),
+        display: 'flex',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
@@ -200,16 +215,16 @@ function Volunteer() {
 
 
    return (
-           <div>
+       <div>
+           <AppAppBar/>
                {
                    state.authenticated ?
 
                        <AuthPage logout={logout} firstName={state.firstName} lastName={state.lastName} email={state.lastName} img={state.img}/>
                        :
-                       <React.Fragment>
-                           <AppAppBar/>
+                       <div className={classes.root}>
 
-                           <Container component="main" maxWidth="xs">
+                           <Container component="main" maxWidth="xs" >
                                <CssBaseline/>
                                <div className={classes.paper}>
                                    <Avatar className={classes.avatar}>
@@ -280,7 +295,7 @@ function Volunteer() {
                                        </Grid>
 
 
-                                       <Grid container>
+                                       <Grid container className={classes.submit}>
                                            <Grid item xs>
                                                <Link href="#" variant="body2">
                                                    Forgot password?
@@ -296,10 +311,11 @@ function Volunteer() {
                                </div>
                            </Container>
 
-                           <AppFooter/>
-                       </React.Fragment>
+                       </div>
                }
-           </div>
+
+           <AppFooter/>
+       </div>
 
 );
 }

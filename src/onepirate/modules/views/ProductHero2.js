@@ -18,6 +18,8 @@ import '../../../searchBarStyles.css';
 import useSpeechToText from 'react-hook-speech-to-text';
 import { RestaurantOutlined } from '@material-ui/icons';
 
+const videoSite = 'https://video-app-3458-8512-dev.twil.io/?passcode=03837734588512';
+
 const backgroundImage =
     'https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_960_720.png';
 
@@ -209,21 +211,21 @@ function ProductHero2(props) {
             <Button
               className={classes.button}
               component="a"
-              href="#"
+              href={videoSite}
             >
               Email
             </Button>
             <Button
               className={classes.button}
               component="a"
-              href="#"
+              href={videoSite}
             >
               Phone
             </Button>
             <Button
               className={classes.button}
               component="a"
-              href="#"
+              href={videoSite}
             >
               Tablet/iPad
             </Button>
@@ -231,28 +233,28 @@ function ProductHero2(props) {
               className={classes.button}
               variant="contained"
               component="a"
-              href="#"
+              href={videoSite}
             >
               Internet
             </Button>
             <Button
               className={classes.button}
               component="a"
-              href="#"
+              href={videoSite}
             >
               Windows
             </Button>
             <Button
               className={classes.button}
               component="a"
-              href="#"
+              href={videoSite}
             >
               Mac
             </Button>
             <Button
               className={classes.button}
               component="a"
-              href="#"
+              href={videoSite}
             >
               Other
             </Button>
@@ -267,7 +269,7 @@ function ProductHero2(props) {
             <Button
                 className={classes.roundButton2}
                 component="a"
-                href="#"
+                href={videoSite}
               >
                 Go
             </Button>
@@ -287,7 +289,7 @@ function ProductHero2(props) {
             <Button
                 className={classes.roundButton3}
                 component="a"
-                href="#"
+                href={videoSite}
               >
                 Go
             </Button>
