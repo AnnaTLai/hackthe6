@@ -15,7 +15,7 @@ function Copyright() {
       <React.Fragment>
         {'© '}
         <Link color="inherit" href="/">
-          CanYouHelpWithMy.tech
+          CanYouHelpWithMy.tech made at Hack the 6ix
         </Link>{' '}
         {new Date().getFullYear()}
       </React.Fragment>
@@ -94,7 +94,7 @@ export default function AppFooter() {
       <Typography component="footer" className={classes.root}>
         <Container className={classes.container}>
           <Grid container spacing={5}>
-            <Grid item xs={6} sm={4} md={3}>
+            <Grid item xs={8} sm={6} md={5}>
               <Grid
                   container
                   direction="column"
@@ -146,7 +146,7 @@ export default function AppFooter() {
                 ))}
               </TextField>
             </Grid>
-            <Grid item>
+            <Grid item xs={12} sm={12} md={12}>
               <Typography variant="caption">
                 {'Icons made by '}
                 <Link href="https://www.freepik.com" rel="sponsored" title="Freepik">
