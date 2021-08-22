@@ -6,6 +6,7 @@
  */
  .select-search {
     width: 500px;
+    left: 30%;
     position: relative;
     font-family: 'Nunito Sans', sans-serif;
     box-sizing: border-box;
