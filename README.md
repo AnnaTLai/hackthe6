@@ -46,3 +46,7 @@ The biggest challenge was that most of our teammates haven’t used the technolo
 - Optimize/update UI
 - Recruit volunteers
 - Advertising
+
+## Attribution
+https://github.com/twilio/twilio-video-app-react
+https://github.com/mui-org/material-ui/tree/master/docs/src/pages/premium-themes/onepirate
