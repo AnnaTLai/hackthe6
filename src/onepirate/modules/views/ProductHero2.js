@@ -16,6 +16,7 @@ import SelectSearch from 'react-select-search';
 import { fuzzySearch } from 'react-select-search';
 import '../../../searchBarStyles.css';
 import useSpeechToText from 'react-hook-speech-to-text';
+import { RestaurantOutlined } from '@material-ui/icons';
 
 const backgroundImage =
     'https://cdn.pixabay.com/photo/2017/03/25/17/55/colorful-2174045_960_720.png';
@@ -295,7 +296,7 @@ function ProductHero2(props) {
               {isRecording ? 'Stop Recording' : 'Start Recording'}
             </button> */}
             <ul>
-              {isRecording ? interimResult && <li>{interimResult}</li> : results[results.length - 1].transcript}
+              {isRecording ? interimResult && <li>{interimResult}</li> : results.length == 0 ? "" : results[results.length - 1].transcript}
             </ul>
           </div>
           {/* <Button
