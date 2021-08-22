@@ -77,7 +77,7 @@ export default function ProductHero2() {
       />
       <Box
       component="section"
-      sx={{ display: 'flex', overflow: 'hidden', bgcolor: 'secondary.light' }}
+      styles={{ display: 'flex', overflow: 'hidden', bgcolor: 'secondary.light' }}
       >
       <Container sx={{ mt: 15, mb: 30, display: 'flex', position: 'relative' }}>
         <Typography color="#000000" align="center" variant="h3" marked="center">

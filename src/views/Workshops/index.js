@@ -20,14 +20,17 @@ let calendars = [
     }
 ];
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+    root:{
+        backgroundColor: theme.palette.secondary.light,
+    },
     calendarStyle: {
         marginBottom: "100px"
     },
     bottomMargin: {
         marginBottom: "50px"
     },
-});
+}));
 
 const settings = {
     dots: true,
@@ -94,7 +97,7 @@ function SamplePrevArrow(props) {
 function Workshops() {
     const classes = useStyles();
     return (
-        <React.Fragment>
+        <div className={classes.root}>
             <AppAppBar />
             <h1 style={{ 'text-align': 'center', 'font-size': '60px'}}>WORKSHOPS</h1>
             <Container maxWidth={'lg'} className={classes.calendarStyle}>
@@ -136,7 +139,7 @@ function Workshops() {
                 </div>
             </Container>
             <AppFooter />
-        </React.Fragment>
+        </div>
     )
 }
 
