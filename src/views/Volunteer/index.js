@@ -130,7 +130,13 @@ function Volunteer() {
     }
 
     const logout = () => {
-        console.log('logout') // eslint-disable-line
+        setState({
+            authenticated: false,
+            email: '',
+            firstName: '',
+            lastName:'',
+            img: '',
+        })
     }
 
 
