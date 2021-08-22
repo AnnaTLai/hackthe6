@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# CanYouHelpWithMy.Tech website for HackThe6ix 2021
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Inspiration
+We've all had that experience with our parents and grandparents asking us for help with the computer or smartphone, especially being at home in the pandemic with most meetings being virtual. This brought to mind the technological barriers between us and the older generation, as well as more so with lower socioeconomic groups who may not have access to the same privileges we have. Thus we got to thinking how can we increase accessibility of technology, and an idea is that people would need immediate help and would prefer an interface where they can talk to someone, but also more comprehensive educational materials are available to learn the technologies. Since what older people generally ask is 'can you help me with [insert technological issue]', the idea of CanYouHelpMe.Tech website was born.
 
-In the project directory, you can run:
+## What it does
+Our website has 4 main functions: 
+1. offer immediate tech support through search options to narrow your problem and video call and chat with our volunteers 24/7, 
+2. provide free live and recorded educational workshops to the general public, 
+3. become a volunteer and 
+4. make a donation.
 
-### `npm start`
+## How we built it#
+Prototyping: 
+Figma
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Website:
+- React web app
+- Node.js
+- JavaScript, CSS, HTML
+- Google Calendar API
+- Goggle Auth2 User login
+- Google Speech to text API that utilizes ML
+- Twilio API
+- Heroku Deployment
+- Domain.com for a custom domain   
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Challenges we ran into
+The biggest challenge was that most of our teammates haven’t used the technologies such as React, Twilio and Google Authorization before, so we had to learn these as we used them. As expected, some errors also came up when running the code, which we discussed and worked through together to solve. Another issue that came up was with typescript files interfering with the javascript files, but this was resolved by removing the typescript.
 
-### `npm test`
+## Accomplishments that we're proud of
+- Built a mostly functional website!
+- Learned React and Twilio
+- Utilized features of Google Calendar, Google Speech to text and Twilio video call and chat
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## What we learned
+- How to build a website
+- New Technologies: React, Twilio, Google technologies API
+- How to merge conflicts with Git
 
-### `npm run build`
+## What's next for CanYouHelpWithMy.Tech
+- Text-to-speech to aid those with vision issues
+- Continue fixing bugs
+- Optimize/update UI
+- Recruit volunteers
+- Advertising
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Attribution
+https://github.com/twilio/twilio-video-app-react
+https://github.com/mui-org/material-ui/tree/master/docs/src/pages/premium-themes/onepirate
