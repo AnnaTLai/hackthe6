@@ -1,4 +1,7 @@
 # CanYouHelpWithMy.Tech website for HackThe6ix 2021
+Team Members: Anna, Kimlin, Tony, Lucia
+
+https://devpost.com/software/canyouhelpwithmytech
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
